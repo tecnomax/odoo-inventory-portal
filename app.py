@@ -5,8 +5,10 @@ from fastapi import FastAPI, Request, Depends, HTTPException, status
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.responses import HTMLResponse, JSONResponse
 from jinja2 import Template
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
 security = HTTPBasic()
 
 PORTAL_USERNAME = os.environ.get("PORTAL_USERNAME", "customer")
@@ -165,7 +167,30 @@ HTML_TEMPLATE = """
             background: #f8f8f8;
             color: #222;
         }
+.header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+}
 
+.company-logo {
+    max-height: 60px;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+.company-info h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.phone {
+    margin-top: 3px;
+    font-size: 13px;
+    color: #444;
+    font-weight: bold;
+}
         h1 {
             margin-bottom: 4px;
             font-size: 22px;
@@ -273,7 +298,14 @@ HTML_TEMPLATE = """
     </style>
 </head>
 <body>
-    <h1>Inventory Availability</h1>
+    <div class="header">
+        <img src="/static/logo.png" alt="Company Logo" class="company-logo">
+
+        <div class="company-info">
+            <h1>Inventory Availability</h1>
+            <div class="phone">Phone: 787-000-0000</div>
+        </div>
+    </div>
 
     <div class="updated">
         Last updated: {{ last_updated }}

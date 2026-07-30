@@ -267,11 +267,13 @@ HTML_TEMPLATE = """
         }
 
         th.product, td.product {
-            width: 230px;
+            width: 260px;
+            max-width: 260px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        
 
         th.description, td.description {
             white-space: nowrap;

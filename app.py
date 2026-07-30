@@ -261,19 +261,21 @@ HTML_TEMPLATE = """
         }
 
 th.product, td.product {
-    width: 150px;
-    max-width: 150px;
+    width: 110px;
+    max-width: 110px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 th.description, td.description {
-    width: 300px;
-    max-width: 300px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 420px;
+    max-width: 420px;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    word-break: normal;
+    line-height: 1.2;
 }
 
 th.qty, td.qty {

@@ -369,6 +369,7 @@ HTML_TEMPLATE = """
         <input type="text" id="searchInput" oninput="filterTable()" placeholder="Search by SKU, product, or description...">
     </div>
 
+<div class="table-wrap">
     <table id="inventoryTable">
         <thead>
             <tr>
@@ -400,6 +401,7 @@ HTML_TEMPLATE = """
             {% endfor %}
         </tbody>
     </table>
+</div>
 
     <script>
         let searchTimeout = null;

@@ -380,7 +380,6 @@ HTML_TEMPLATE = """
     <table id="inventoryTable">
         <thead>
             <tr>
-                <th class="sku">SKU</th>
                 <th class="product">Product</th>
                 <th class="description">Description</th>
                 <th class="qty">Bayamón</th>

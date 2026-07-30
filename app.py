@@ -238,7 +238,7 @@ HTML_TEMPLATE = """
             width: 100%;
             border-collapse: collapse;
             background: white;
-            table-layout: fixed;
+            table-layout: auto;
         }
 
         th, td {

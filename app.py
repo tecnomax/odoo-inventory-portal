@@ -274,10 +274,9 @@ HTML_TEMPLATE = """
         }
 
         th.description, td.description {
-            width: auto;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            width: 1%;
+            
         }
 
         th.qty, td.qty {

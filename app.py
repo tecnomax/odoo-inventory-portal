@@ -260,33 +260,36 @@ HTML_TEMPLATE = """
             z-index: 2;
         }
 
-        th.product, td.product {
-            width: 150px;
-            max-width: 150px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+th.product, td.product {
+    width: 150px;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-        th.description, td.description {
-            width: auto;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+th.description, td.description {
+    width: 300px;
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
-        th.qty, td.qty {
-            width: 80px;
-            text-align: right;
-            white-space: nowrap;
-        }
+th.qty, td.qty {
+    width: 65px;
+    max-width: 65px;
+    text-align: right;
+    white-space: nowrap;
+}
 
-        th.price, td.price {
-            width: 90px;
-            text-align: right;
-            white-space: nowrap;
-            font-weight: bold;
-        }
+th.price, td.price {
+    width: 75px;
+    max-width: 75px;
+    text-align: right;
+    white-space: nowrap;
+    font-weight: bold;
+}
 
         tr:hover {
             background: #f1f1f1;

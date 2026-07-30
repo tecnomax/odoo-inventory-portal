@@ -260,14 +260,6 @@ HTML_TEMPLATE = """
             z-index: 2;
         }
 
-        th.sku, td.sku {
-            width: 105px;
-            white-space: nowrap;
-            font-weight: bold;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
         th.product, td.product {
             width: 230px;
             white-space: nowrap;
@@ -390,7 +382,6 @@ HTML_TEMPLATE = """
         <tbody>
             {% for item in inventory %}
             <tr>
-                <td class="sku" title="{{ item.sku }}">{{ item.sku }}</td>
                 <td class="product" title="{{ item.product }}">{{ item.product }}</td>
                 <td class="description" title="{{ item.description }}">{{ item.description }}</td>
 

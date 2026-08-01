@@ -178,171 +178,207 @@ HTML_TEMPLATE = """
     <title>Inventory Availability</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 16px;
+        background: #f8f8f8;
+        color: #222;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 8px;
+    }
+
+    .company-logo {
+        max-height: 58px;
+        max-width: 180px;
+        object-fit: contain;
+    }
+
+    .company-info h1 {
+        margin: 0;
+        font-size: 22px;
+    }
+
+    .phone {
+        margin-top: 3px;
+        font-size: 13px;
+        color: #444;
+        font-weight: bold;
+    }
+
+    .updated {
+        margin-bottom: 6px;
+        color: #666;
+        font-size: 12px;
+    }
+
+    .summary {
+        margin-bottom: 10px;
+        font-size: 12px;
+        color: #444;
+    }
+
+    .search-box {
+        margin-bottom: 10px;
+    }
+
+    input {
+        padding: 7px;
+        width: 350px;
+        max-width: 100%;
+        font-size: 13px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .table-container {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto;
+        overflow-x: auto;
+        background: white;
+    }
+
+    table {
+        width: auto;
+        min-width: 650px;
+        border-collapse: collapse;
+        background: white;
+        table-layout: auto;
+    }
+
+    th,
+    td {
+        padding: 4px 6px;
+        border-bottom: 1px solid #ddd;
+        font-size: 12px;
+        line-height: 1.15;
+        vertical-align: top;
+    }
+
+    th {
+        background: #222;
+        color: white;
+        text-align: left;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    th:hover {
+        background: #333;
+    }
+
+    th.product,
+    td.product {
+        width: 110px;
+        max-width: 110px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    th.description,
+    td.description {
+        width: 300px;
+        max-width: 300px;
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+        line-height: 1.2;
+    }
+
+    th.qty,
+    td.qty {
+        width: 55px;
+        max-width: 55px;
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    th.price,
+    td.price {
+        width: 70px;
+        max-width: 70px;
+        text-align: right;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+
+    tbody tr:nth-child(even) {
+        background: #f7f7f7;
+    }
+
+    tbody tr:hover {
+        background: #eeeeee;
+    }
+
+    .qty-zero {
+        color: red;
+        font-weight: bold;
+    }
+
+    .qty-positive {
+        color: #111;
+        font-weight: normal;
+    }
+
+    @media (max-width: 900px) {
         body {
-            font-family: Arial, sans-serif;
-            margin: 16px;
-            background: #f8f8f8;
-            color: #222;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 8px;
-        }
-
-        .company-logo {
-            max-height: 58px;
-            max-width: 180px;
-            object-fit: contain;
+            margin: 10px;
         }
 
         .company-info h1 {
-            margin: 0;
-            font-size: 22px;
+            font-size: 18px;
         }
 
-        .phone {
-            margin-top: 3px;
-            font-size: 13px;
-            color: #444;
-            font-weight: bold;
+        .company-logo {
+            max-height: 45px;
+            max-width: 140px;
         }
 
-        .updated {
-            margin-bottom: 6px;
-            color: #666;
-            font-size: 12px;
-        }
-
-        .summary {
-            margin-bottom: 10px;
-            font-size: 12px;
-            color: #444;
-        }
-
-        .search-box {
-            margin-bottom: 10px;
-        }
-
-        input {
-            padding: 7px;
-            width: 350px;
-            max-width: 100%;
-            font-size: 13px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        th,
+        td {
+            font-size: 11px;
+            padding: 4px;
         }
 
         table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            table-layout: fixed;
+            min-width: 600px;
         }
 
-        th, td {
-            padding: 4px 6px;
-            border-bottom: 1px solid #ddd;
-            font-size: 12px;
-            line-height: 1.15;
-            vertical-align: top;
+        th.product,
+        td.product {
+            width: 90px;
+            max-width: 90px;
         }
 
-        th {
-            background: #222;
-            color: white;
-            text-align: left;
-            position: sticky;
-            top: 0;
-            z-index: 2;
+        th.description,
+        td.description {
+            width: 260px;
+            max-width: 260px;
         }
 
-th.product, td.product {
-    width: 110px;
-    max-width: 110px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-th.description, td.description {
-    width: 420px;
-    max-width: 420px;
-    white-space: normal;
-    overflow: visible;
-    text-overflow: unset;
-    word-break: normal;
-    line-height: 1.2;
-}
-
-th.qty, td.qty {
-    width: 65px;
-    max-width: 65px;
-    text-align: right;
-    white-space: nowrap;
-}
-
-th.price, td.price {
-    width: 75px;
-    max-width: 75px;
-    text-align: right;
-    white-space: nowrap;
-    font-weight: bold;
-}
-
-        tr:hover {
-            background: #f1f1f1;
+        th.qty,
+        td.qty {
+            width: 50px;
+            max-width: 50px;
         }
 
-        .qty-zero {
-            color: red;
-            font-weight: bold;
+        th.price,
+        td.price {
+            width: 65px;
+            max-width: 65px;
         }
-
-        .qty-positive {
-            color: #111;
-            font-weight: normal;
-        }
-
-        @media (max-width: 900px) {
-            body {
-                margin: 10px;
-            }
-
-            .company-info h1 {
-                font-size: 18px;
-            }
-
-            .company-logo {
-                max-height: 45px;
-                max-width: 140px;
-            }
-
-            th, td {
-                font-size: 11px;
-                padding: 4px 5px;
-            }
-
-            th.sku, td.sku {
-                width: 85px;
-            }
-
-            th.product, td.product {
-                width: 170px;
-            }
-
-            th.qty, td.qty {
-                width: 65px;
-            }
-
-            th.price, td.price {
-                width: 75px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <div class="header">

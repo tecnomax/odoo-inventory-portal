@@ -280,7 +280,7 @@ HTML_TEMPLATE = """
     .table-container {
         width: fit-content;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 0;
         overflow-x: auto;
         background: white;
     }

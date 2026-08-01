@@ -387,25 +387,47 @@ th.price, td.price {
             </tr>
         </thead>
         <tbody>
-            {% for item in inventory %}
-            <tr>
-                <td class="product" title="{{ item.product }}">{{ item.product }}</td>
-                <td class="description" title="{{ item.description }}">{{ item.description }}</td>
+    {% for item in inventory %}
+    <tr>
+        <td class="product" title="{{ item.product }}">
+            {{ item.product }}
+        </td>
 
-                <td class="qty {% if item.bayamon_qty <= 0 %}qty-zero{% else %}qty-positive{% endif %}">
-                    {{ "%.0f"|format(item.bayamon_qty) }}
-                </td>
+        <td class="description" title="{{ item.description }}">
+            {{ item.description }}
+        </td>
 
-                <td class="qty {% if item.san_sebastian_qty <= 0 %}qty-zero{% else %}qty-positive{% endif %}">
-                    {{ "%.0f"|format(item.san_sebastian_qty) }}
-                </td>
+        <td
+            class="qty {% if item.bayamon_qty <= 0 %}qty-zero{% else %}qty-positive{% endif %}"
+            data-value="{{ item.bayamon_qty }}"
+        >
+            {% if item.bayamon_qty > 24 %}
+                24+
+            {% else %}
+                {{ "%.0f"|format(item.bayamon_qty) }}
+            {% endif %}
+        </td>
 
-                <td class="price">
-                    ${{ "%.2f"|format(item.price) }}
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
+        <td
+            class="qty {% if item.san_sebastian_qty <= 0 %}qty-zero{% else %}qty-positive{% endif %}"
+            data-value="{{ item.san_sebastian_qty }}"
+        >
+            {% if item.san_sebastian_qty > 24 %}
+                24+
+            {% else %}
+                {{ "%.0f"|format(item.san_sebastian_qty) }}
+            {% endif %}
+        </td>
+
+        <td
+            class="price"
+            data-value="{{ item.price }}"
+        >
+            ${{ "%.2f"|format(item.price) }}
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
     </table>
 </div>
 

@@ -350,8 +350,8 @@ th.price, td.price {
 
         <div class="company-info">
             <h1>Inventory Availability</h1>
-            <div class="phone">Phone: 787-600-0902</div>
-            <div class="phone">Phone: 787-666-8282</div>
+            <div class="phone">San Sebastián: 787-600-0902</div>
+            <div class="phone">Bayamón: 787-666-8282</div>
         </div>
     </div>
 

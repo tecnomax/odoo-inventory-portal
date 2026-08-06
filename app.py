@@ -306,6 +306,7 @@ HTML_TEMPLATE = """
             font-size: 26px;
             line-height: 1.1;
             font-weight: 700;
+            color: #1956b8;
         }
 
         .hero-meta {

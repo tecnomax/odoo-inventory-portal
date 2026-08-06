@@ -297,9 +297,13 @@ HTML_TEMPLATE = """
             background: rgba(255, 255, 255, 0.35);
         }
 
-        .hero-title {
-            min-width: 0;
-        }
+        .hero-title h1 {
+            margin: 0;
+            font-size: 26px;
+            line-height: 1.1;
+            font-weight: 700;
+            color: #000000;
+}
 
         .hero-title h1 {
             margin: 0;

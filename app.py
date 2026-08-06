@@ -777,31 +777,12 @@ HTML_TEMPLATE = """
                         </div>
 
                         <div class="control-group">
-                            <label class="control-label" for="warehouseFilter">Warehouse</label>
-                            <select id="warehouseFilter" class="select-control">
-                                <option value="all">All Locations</option>
-                                <option value="bayamon">Bayamón Only</option>
-                                <option value="san_sebastian">San Sebastián Only</option>
-                            </select>
-                        </div>
-
-                        <div class="control-group">
                             <span class="control-label">Stock Visibility</span>
                             <div class="segmented" aria-label="Stock Visibility">
                                 <button type="button" class="active" data-stock-filter="all">All</button>
                                 <button type="button" data-stock-filter="in">In Stock</button>
                                 <button type="button" data-stock-filter="out">Out of Stock</button>
                             </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="sortSelect">Sort By</label>
-                            <select id="sortSelect" class="select-control">
-                                <option value="price_asc" selected>Price: Low to High</option>
-                                <option value="price_desc">Price: High to Low</option>
-                                <option value="product_asc">Product: A to Z</option>
-                                <option value="product_desc">Product: Z to A</option>
-                            </select>
                         </div>
                     </div>
                 </section>

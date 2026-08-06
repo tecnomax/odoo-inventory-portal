@@ -759,43 +759,6 @@ HTML_TEMPLATE = """
                     <div class="status-pill">📦 <span>Products shown: {{ total_products }}</span></div>
                 </div>
 
-                <section class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-icon blue">📦</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Total Products</div>
-                            <div class="metric-value">{{ total_products }}</div>
-                            <div class="metric-note">SKUs in inventory</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon green">🏬</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Bayamón In Stock</div>
-                            <div class="metric-value">{{ bayamon_in_stock_count }}</div>
-                            <div class="metric-note">SKUs with stock</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon blue">🏪</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">San Sebastián In Stock</div>
-                            <div class="metric-value">{{ san_sebastian_in_stock_count }}</div>
-                            <div class="metric-note">SKUs with stock</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon green">🏷️</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Price Sorted View</div>
-                            <div class="metric-value green-text" id="sortStateLabel">Low to High</div>
-                            <div class="metric-note">Current sorting</div>
-                        </div>
-                    </div>
-                </section>
 
                 <section class="toolbar-card">
                     <div class="toolbar-grid">

@@ -562,7 +562,6 @@ HTML_TEMPLATE = """
         .col-product {
             width: 190px;
             font-weight: 700;
-            color: #254e85;
         }
 
         .col-description {
@@ -578,7 +577,6 @@ HTML_TEMPLATE = """
         .col-price {
             text-align: right;
             font-weight: 800;
-            color: #214f96;
         }
 
         .qty-zero {

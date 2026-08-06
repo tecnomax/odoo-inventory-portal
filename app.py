@@ -260,8 +260,15 @@ HTML_TEMPLATE = """
         }
 
         .hero {
-            background: linear-gradient(90deg, var(--navy-dark) 0%, var(--navy) 60%, #0d4f94 100%);
-            color: #fff;
+            background: linear-gradient(
+            105deg,
+            #ffffff 0%,
+            #ffffff 34%,
+            #eaf1f8 43%,
+            #88a8ca 62%,
+            #0b3b78 100%
+      );
+            color: #ffffff;
             padding: 18px 28px;
             display: flex;
             align-items: center;
@@ -700,6 +707,7 @@ HTML_TEMPLATE = """
 
             .hero-title h1 {
                 font-size: 22px;
+                color: #000000;
             }
 
             .content {

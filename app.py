@@ -264,9 +264,9 @@ HTML_TEMPLATE = """
             105deg,
             #ffffff 0%,
             #ffffff 34%,
-            #eaf1f8 43%,
-            #88a8ca 62%,
-            #0b3b78 100%
+            #ffffff 43%,
+            #ffffff 62%,
+            #ffffff 100%
       );
             color: #ffffff;
             padding: 18px 28px;

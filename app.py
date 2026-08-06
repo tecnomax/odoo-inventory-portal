@@ -756,7 +756,7 @@ HTML_TEMPLATE = """
             <div class="content">
                 <div class="status-row">
                     <div class="status-pill">🕒 <span>Last updated: {{ last_updated }}</span></div>
-                    <div class="status-pill">📦 <span>Products shown: {{ total_products }}</span></div>
+                    
                 </div>
 
 

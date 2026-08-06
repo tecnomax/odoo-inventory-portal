@@ -317,7 +317,7 @@ HTML_TEMPLATE = """
             align-items: center;
             gap: 18px;
             flex-wrap: wrap;
-            color: rgba(255, 255, 255, 0.96);
+            color: rgba(0, 0, 0, 1);
             font-size: 13px;
             font-weight: 600;
         }

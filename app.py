@@ -768,45 +768,7 @@ HTML_TEMPLATE = """
                     <div class="status-pill">🕒 <span>Last updated: {{ last_updated }}</span></div>
                     <div class="status-pill">📦 <span>Products shown: {{ total_products }}</span></div>
                 </div>
-
-                <section class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-icon blue">📦</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Total Products</div>
-                            <div class="metric-value">{{ total_products }}</div>
-                            <div class="metric-note">SKUs in inventory</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon green">🏬</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Bayamón In Stock</div>
-                            <div class="metric-value">{{ bayamon_in_stock_count }}</div>
-                            <div class="metric-note">SKUs with stock</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon blue">🏪</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">San Sebastián In Stock</div>
-                            <div class="metric-value">{{ san_sebastian_in_stock_count }}</div>
-                            <div class="metric-note">SKUs with stock</div>
-                        </div>
-                    </div>
-
-                    <div class="metric-card">
-                        <div class="metric-icon green">🏷️</div>
-                        <div class="metric-copy">
-                            <div class="metric-label">Price Sorted View</div>
-                            <div class="metric-value green-text" id="sortStateLabel">Low to High</div>
-                            <div class="metric-note">Current sorting</div>
-                        </div>
-                    </div>
-                </section>
-
+   
                 <section class="toolbar-card">
                     <div class="toolbar-grid">
                         <div class="control-group">
@@ -938,25 +900,18 @@ HTML_TEMPLATE = """
         const pageSizeSelect = document.getElementById("pageSizeSelect");
         const pagination = document.getElementById("pagination");
         const resultsSummary = document.getElementById("resultsSummary");
-        const sortStateLabel = document.getElementById("sortStateLabel");
         const tbody = document.querySelector("#inventoryTable tbody");
         const priceHeader = document.getElementById("priceHeader");
 
-        function updateSortLabels() {
-            if (state.sort === "price_asc") {
-                sortStateLabel.textContent = "Low to High";
-                priceHeader.textContent = "Price ↑";
-            } else if (state.sort === "price_desc") {
-                sortStateLabel.textContent = "High to Low";
-                priceHeader.textContent = "Price ↓";
-            } else if (state.sort === "product_asc") {
-                sortStateLabel.textContent = "Product A to Z";
-                priceHeader.textContent = "Price";
-            } else {
-                sortStateLabel.textContent = "Product Z to A";
-                priceHeader.textContent = "Price";
-            }
-        }
+function updateSortLabels() {
+    if (state.sort === "price_asc") {
+        priceHeader.textContent = "Price ↑";
+    } else if (state.sort === "price_desc") {
+        priceHeader.textContent = "Price ↓";
+    } else {
+        priceHeader.textContent = "Price";
+    }
+}
 
         function rowMatchesFilters(row) {
             const searchBlob = [

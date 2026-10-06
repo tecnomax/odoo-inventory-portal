@@ -978,10 +978,15 @@ function updateSortLabels() {
             applyFilters();
         });
 
-        window.addEventListener("load", () => {
-            allRows = Array.from(document.querySelectorAll("#inventoryTable tbody tr"));
-            applyFilters();
-        });
+window.addEventListener("load", () => {
+    allRows = Array.from(document.querySelectorAll("#inventoryTable tbody tr"));
+    applyFilters();
+
+    // Automatically reload inventory every 10 minutes
+    setTimeout(() => {
+        window.location.reload();
+    }, 10 * 60 * 1000);
+});
     </script>
 </body>
 </html>

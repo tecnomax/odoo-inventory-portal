@@ -2,6 +2,7 @@ import os
 import secrets
 import xmlrpc.client
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -990,7 +991,9 @@ function updateSortLabels() {
 @app.get("/", response_class=HTMLResponse)
 def inventory_page(current_user: dict = Depends(authenticate_user)):
     inventory = get_inventory()
-    last_updated = datetime.now().strftime("%Y-%m-%d %I:%M %p")
+    last_updated = datetime.now(
+    ZoneInfo("America/Puerto_Rico")
+).strftime("%Y-%m-%d %I:%M %p")
 
     total_products = len(inventory)
     bayamon_in_stock_count = sum(1 for item in inventory if (item.get("bayamon_qty") or 0) > 0)
